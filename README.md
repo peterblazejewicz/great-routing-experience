@@ -5,6 +5,7 @@ A sample Angular app that experiments with modular application setup. First load
 ## Details
 
 - Clarity UI for mocking existing platform UI experience
+  > ng add @clr/angular
 - Routing with lazy loaded modules to mock dynamic platform configuration
 - [Optional] NG Nx for splitting application into modules
 
