@@ -1,21 +1,100 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-
-<router-outlet></router-outlet>
+<clr-main-container>
+    <div class="alert alert-app-level alert-info">
+        <div class="alert-items">
+            <div class="alert-item static">
+                <div class="alert-icon-wrapper">
+                    <clr-icon class="alert-icon" shape="exclamation-circle"></clr-icon>
+                </div>
+                <span class="alert-text">
+                    You are not logged in!
+                </span>
+            </div>
+        </div>
+    </div>
+  <clr-header>
+    <div class="branding">
+      <a href="..." class="nav-link">
+        <clr-icon shape="vm-bug"></clr-icon>
+        <span class="title">Project Clarity</span>
+      </a>
+    </div>
+    <!-- <div class="header-nav">
+      <a href="..." class="active nav-link"><span class="nav-text">Dashboard</span></a>
+      <a href="..." class="nav-link"><span class="nav-text">Interactive Analytics</span></a>
+    </div> -->
+    <div class="header-actions">
+      <clr-dropdown>
+        <button class="nav-text" clrDropdownTrigger>
+          john.doe@vmware.com
+          <clr-icon shape="caret down"></clr-icon>
+        </button>
+        <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+          <a href="..." clrDropdownItem>Preferences</a>
+          <a href="..." clrDropdownItem>Log out</a>
+        </clr-dropdown-menu>
+      </clr-dropdown>
+    </div>
+  </clr-header>
+  <nav class="subnav" [clr-nav-level]="1">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Management</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Cloud</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Tenants</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="content-container">
+    <div class="content-area">
+      <div class="login-wrapper">
+        <form class="login">
+          <section class="title">
+            <h3 class="welcome">Welcome to</h3>
+            Company Product Name
+            <h5 class="hint">Use your Company ID to sign in or create one now</h5>
+          </section>
+          <div class="login-group">
+            <clr-select-container>
+              <select clrSelect [(ngModel)]="formData.userType" name="userType" required>
+                <option value="Local Users">Local Users</option>
+                <option value="Administrator">Administrator</option>
+              </select>
+            </clr-select-container>
+            <clr-input-container>
+              <input clrInput [(ngModel)]="formData.username" class="username" name="username" type="text" placeholder="Username"
+                required>
+              <clr-control-error *clrIfError="'required'">Username is required </clr-control-error>
+            </clr-input-container>
+            <clr-password-container>
+              <input clrPassword [(ngModel)]="formData.password" name="password" class="clr-password" type="password"
+                placeholder="Password">
+              <clr-control-error *clrIfError="'required'">Password is required</clr-control-error>
+            </clr-password-container>
+            <div class="checkbox">
+              <input type="checkbox" id="rememberme">
+              <label for="rememberme">
+                Remember me
+              </label>
+            </div>
+            <div class="error active" *ngIf="!(formData.username && formData.password)">
+              Invalid user name or password
+            </div>
+            <button type="submit" class="btn btn-primary">NEXT</button>
+            <a href="javascript://" class="signup">Sign up for a Company ID</a>
+          </div>
+        </form>
+      </div>
+      <router-outlet></router-outlet>
+    </div>
+    <nav class="sidenav" [clr-nav-level]="2">
+      (sidenav)
+    </nav>
+  </div>
+</clr-main-container>
