@@ -6,9 +6,11 @@ import { ClarityModule, ClrFormsNextModule } from '@clr/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoginModule } from './login/login.module';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, PageNotFoundComponent],
   imports: [
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -16,9 +18,9 @@ import { AppComponent } from './app.component';
     ClarityModule,
     ClrFormsNextModule,
     FormsModule,
+    LoginModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}

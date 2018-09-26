@@ -1,27 +1,28 @@
 <clr-main-container>
-    <div class="alert alert-app-level alert-info">
-        <div class="alert-items">
-            <div class="alert-item static">
-                <div class="alert-icon-wrapper">
-                    <clr-icon class="alert-icon" shape="exclamation-circle"></clr-icon>
-                </div>
-                <span class="alert-text">
-                    You are not logged in!
-                </span>
-            </div>
+  <div class="alert alert-app-level alert-info">
+    <div class="alert-items">
+      <div class="alert-item static">
+        <div class="alert-icon-wrapper">
+          <clr-icon class="alert-icon" shape="exclamation-circle"></clr-icon>
         </div>
+        <span class="alert-text">
+          You are not logged in!
+        </span>
+      </div>
     </div>
+  </div>
   <clr-header>
     <div class="branding">
-      <a href="..." class="nav-link">
+      <a routerLink="/" class="nav-link">
         <clr-icon shape="vm-bug"></clr-icon>
-        <span class="title">Project Clarity</span>
+        <span class="title">Home</span>
       </a>
     </div>
-    <!-- <div class="header-nav">
-      <a href="..." class="active nav-link"><span class="nav-text">Dashboard</span></a>
-      <a href="..." class="nav-link"><span class="nav-text">Interactive Analytics</span></a>
-    </div> -->
+    <div class="header-nav">
+      <a routerLink="/login" routerLinkActive="active" class="nav-link"><span class="nav-text">Login</span></a>
+      <a routerLink="/administration" routerLinkActive="active" class="nav-link"><span class="nav-text">Administration</span></a>
+      <a routerLink="/tasks" routerLinkActive="active" class="nav-link"><span class="nav-text">Tasks</span></a>
+    </div>
     <div class="header-actions">
       <clr-dropdown>
         <button class="nav-text" clrDropdownTrigger>
@@ -35,7 +36,7 @@
       </clr-dropdown>
     </div>
   </clr-header>
-  <nav class="subnav" [clr-nav-level]="1">
+  <!-- <nav class="subnav" [clr-nav-level]="1">
     <ul class="nav">
       <li class="nav-item">
         <a class="nav-link active" href="#">Dashboard</a>
@@ -50,51 +51,13 @@
         <a class="nav-link" href="#">Tenants</a>
       </li>
     </ul>
-  </nav>
+  </nav> -->
   <div class="content-container">
     <div class="content-area">
-      <div class="login-wrapper">
-        <form class="login">
-          <section class="title">
-            <h3 class="welcome">Welcome to</h3>
-            Company Product Name
-            <h5 class="hint">Use your Company ID to sign in or create one now</h5>
-          </section>
-          <div class="login-group">
-            <clr-select-container>
-              <select clrSelect [(ngModel)]="formData.userType" name="userType" required>
-                <option value="Local Users">Local Users</option>
-                <option value="Administrator">Administrator</option>
-              </select>
-            </clr-select-container>
-            <clr-input-container>
-              <input clrInput [(ngModel)]="formData.username" class="username" name="username" type="text" placeholder="Username"
-                required>
-              <clr-control-error *clrIfError="'required'">Username is required </clr-control-error>
-            </clr-input-container>
-            <clr-password-container>
-              <input clrPassword [(ngModel)]="formData.password" name="password" class="clr-password" type="password"
-                placeholder="Password">
-              <clr-control-error *clrIfError="'required'">Password is required</clr-control-error>
-            </clr-password-container>
-            <div class="checkbox">
-              <input type="checkbox" id="rememberme">
-              <label for="rememberme">
-                Remember me
-              </label>
-            </div>
-            <div class="error active" *ngIf="!(formData.username && formData.password)">
-              Invalid user name or password
-            </div>
-            <button type="submit" class="btn btn-primary">NEXT</button>
-            <a href="javascript://" class="signup">Sign up for a Company ID</a>
-          </div>
-        </form>
-      </div>
       <router-outlet></router-outlet>
     </div>
-    <nav class="sidenav" [clr-nav-level]="2">
+    <!-- <nav class="sidenav" [clr-nav-level]="2">
       (sidenav)
-    </nav>
+    </nav> -->
   </div>
 </clr-main-container>
